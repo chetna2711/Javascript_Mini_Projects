@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WORD COUNTER</title>
+    <style>
+        body{
+         padding: 80px;
+        }
+        h1{
+            text-align: center;
+            background-color: #006780;
+            color: white;
+            padding: 10px;
+            margin: 0;
+        }
+        #textbox{
+            width: 99.3%;
+            border: 2px solid #006780;
+            font-size: 20px;
+           
+        }
+        p{
+            text-align: center;
+            background-color: #006780;
+            font-size: 25px;
+            font-weight: 800;
+            color: white;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>WORD  AND CHARECTER COUNTER</h1>
+    <textarea  id="textbox" cols="30" rows="10"></textarea>
+    <p>
+        <span id="word">0</span> Words and  
+        <span id="char">0</span> Charecter
+    </p>
+
+    <script>
+        let textbox = document.getElementById("textbox");
+
+        textbox.addEventListener("input",function(){
+            let text = this.value;
+            let chars = text.length;
+            let count = document.getElementById("char");
+            count.innerHTML = chars;
+
+
+            text =  text.trim();          //begning and ending extra space ignore
+            let words = text.split(" ");  //extra middle space can ignore
+            let cleanlist = words.filter(function(elm){
+               return elm != "";
+            });
+    
+            let final = document.getElementById("word");
+
+            final.innerHTML = cleanlist.length;
+        });
+
+        
+        
+    </script>
+</body>
+</html>
